@@ -1,0 +1,223 @@
+{% extends 'base.html' %}
+
+{% block title %}CV - Muhammed Rafeeq War{% endblock %}
+
+{% block content %}
+<h1>Curriculum Vitae</h1>
+
+<div class="row">
+    <div class="col-md-8">
+        <section class="mb-5">
+            <h3>Education</h3>
+            {% for edu in education %}
+            <div class="cv-item mb-3">
+                <h5>{{ edu.title }}</h5>
+                <p class="text-muted">{{ edu.institution }} | {{ edu.year }}</p>
+                {% if edu.description %}
+                <p>{{ edu.description }}</p>
+                {% endif %}
+            </div>
+            {% empty %}
+            <div class="cv-item mb-3">
+                <h5>PhD in Computer Science</h5>
+                <p class="text-muted">IIT Ropar | 2024-Present</p>
+                <p>Specializing in Edge Computing, Federated Learning, and Cybersecurity</p>
+            </div>
+            {% endfor %}
+        </section>
+
+        <section class="mb-5">
+            <h3>Experience</h3>
+            {% for exp in experience %}
+            <div class="cv-item mb-3">
+                <h5>{{ exp.title }}</h5>
+                <p class="text-muted">{{ exp.institution }} | {{ exp.year }}</p>
+                {% if exp.description %}
+                <p>{{ exp.description }}</p>
+                {% endif %}
+            </div>
+            {% empty %}
+            <div class="cv-item mb-3">
+                <h5>Research Assistant</h5>
+                <p class="text-muted">IIT Ropar | 2024-Present</p>
+                <p>Working on Edge Computing and Federated Learning research projects</p>
+            </div>
+            {% endfor %}
+        </section>
+
+        <section class="mb-5">
+            <h3>Technical Skills</h3>
+            <div class="row">
+                <div class="col-md-6">
+                    <h5>Programming Languages</h5>
+                    <p>C/C++, Python, DSA, Machine Learning</p>
+                    
+                    <h5>System & Network Architecture</h5>
+                    <p>Strong background in system and network architecture for 5G and 5G Advanced. Experience with modeling, graphs, event schedulers, digital twins, and 3GPP NR specifications.</p>
+                    
+                    <h5>Network Automation & Simulation</h5>
+                    <p>Expertise in network automation and simulation development. Proficient in C++, MATLAB, and Python.</p>
+                </div>
+                <div class="col-md-6">
+                    <h5>UI/GUI Design & Simulation</h5>
+                    <p>Skilled in UI/GUI design for simulation and visualization. Beginner in developing 6G link-level, system-level, and network-level simulators for standardization efforts.</p>
+                    
+                    <h5>Cybersecurity</h5>
+                    <p>Practical Ethical Hacking, Security Monitoring, Vulnerability Scanning, Penetration Testing</p>
+                    
+                    <h5>Emerging Technologies</h5>
+                    <p>GenAI, NLP, Data Science, Federated Learning</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="mb-5">
+            <h3>Key Courses Taken</h3>
+            <div class="row">
+                <div class="col-md-6">
+                    <h5>CSE & Mathematics</h5>
+                    <ul>
+                        <li>Algorithm & Data Structure</li>
+                        <li>Operating System</li>
+                        <li>DBMS</li>
+                        <li>Discrete Math</li>
+                    </ul>
+                </div>
+                <div class="col-md-6">
+                    <h5>Specialized Courses</h5>
+                    <ul>
+                        <li>AIML (Artificial Intelligence & Machine Learning)</li>
+                        <li>IoT (Internet of Things)</li>
+                        <li>Information Security</li>
+                        <li>Network Security</li>
+                        <li>Cyber Security</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="mb-5">
+            <h3>Positions of Responsibility</h3>
+            <div class="cv-item mb-3">
+                <h5>Student Member Representative</h5>
+                <p class="text-muted">DSW, Central University of Jammu | Dec 2021 - June 2023</p>
+            </div>
+            <div class="cv-item mb-3">
+                <h5>Captain</h5>
+                <p class="text-muted">University Football Team, Pacific University | Aug 2019 - June 2021</p>
+            </div>
+            <div class="cv-item mb-3">
+                <h5>President</h5>
+                <p class="text-muted">Student Association, Baramulla | Apr 2013 - Jan 2016</p>
+            </div>
+        </section>
+
+        <section class="mb-5">
+            <h3>Miscellaneous</h3>
+            <div class="cv-item mb-2">
+                <strong>2010-2011:</strong> Played Under 14 cricket under the watch of BCCI at NCA. Selected for cricket camp after inter-district performance.
+            </div>
+            <div class="cv-item mb-2">
+                <strong>2023:</strong> Published Research on Federated Learning for CPS Security, research on SCADA, ICS, and IoT using Federated Learning.
+            </div>
+        </section>
+
+        <section class="mb-5">
+            <h3>Key Projects</h3>
+            <div class="cv-item mb-3">
+                <h5>FedSec-CPS: Federated Learning-Based Security Framework</h5>
+                <p class="text-muted">May 2023</p>
+                <p>Developed methodology to improve computational efficiency and security of CPS using horizontal and vertical federated learning.</p>
+            </div>
+            <div class="cv-item mb-3">
+                <h5>Fake News Detection using LSTM</h5>
+                <p class="text-muted">July 2021</p>
+                <p>Deep learning with LSTM to detect fake news with 96% accuracy.</p>
+            </div>
+            <div class="cv-item mb-3">
+                <h5>Computer Vision for Image Processing</h5>
+                <p class="text-muted">January 2022 - July 2022</p>
+                <p>Image and object detection, segmentation, facial recognition and image captioning.</p>
+            </div>
+        </section>
+
+        <section class="mb-5">
+            <h3>Teaching Interests</h3>
+            <ul>
+                <li>Computer Networks</li>
+                <li>Data Structures and Algorithms</li>
+                <li>Database Management Systems</li>
+                <li>Operating Systems</li>
+                <li>Artificial Intelligence and Machine Learning</li>
+                <li>Web Development</li>
+                <li>Cybersecurity</li>
+            </ul>
+        </section>
+
+        <section class="mb-5">
+            <h3>Awards & Honors</h3>
+            <div class="cv-item mb-2">
+                <strong>2017-2021</strong> - Prime Minister's Special Scholarship Scheme, Pacific University
+            </div>
+            <div class="cv-item mb-2">
+                <strong>2024</strong> - PhD Fellowship, IIT Ropar
+            </div>
+        </section>
+
+        <section class="mb-5">
+            <h3>Languages</h3>
+            <p>English, Urdu, Kashmiri, Hindi, Malayalam</p>
+        </section>
+    </div>
+    
+    <div class="col-md-4">
+        <div class="sticky-top">
+            <h5>Contact Information</h5>
+            <p><i class="fas fa-envelope"></i> muhammed.24csz0017@iitrpr.ac.in</p>
+            <p><i class="fas fa-phone"></i> +91-7006161404</p>
+            <p><i class="fas fa-map-marker-alt"></i> Baramulla, Jammu and Kashmir</p>
+            <p><i class="fas fa-university"></i> IIT Ropar, Punjab, India</p>
+            
+            <h5 class="mt-4">Research Interests</h5>
+            <ul class="list-unstyled">
+                <li>• Federated Learning For 6G</li>
+                <li>• Cyber-security in ML for Communications</li>
+                <li>• ML for Communications</li>
+                <li>• Artificial Intelligence for Networks</li>
+                <li>• Distributed Computing</li>
+                <li>• Fog Computing</li>
+                <li>• Edge Computing</li>
+                <li>• Systems Scheduling</li>
+                <li>• Cyber-Physical Systems</li>
+            </ul>
+            
+            <h5 class="mt-4">References</h5>
+            <div class="references">
+                <p><strong>Dr Yashwant Singh</strong><br>
+                Professor and Registrar, Dept. of CSIT<br>
+                Central University Of Jammu<br>
+                <small>yashwant.csit@cujammu.ac.in</small></p>
+                
+                <p><strong>Dr Arvind Selwal</strong><br>
+                Assistant Professor, Dept of CSIT<br>
+                Central University of Jammu<br>
+                <small>arvind.csit@cujammu.ac.in</small></p>
+                
+                <p><strong>Dr Neerendra</strong><br>
+                Assistant Professor, Dept. of CSIT<br>
+                Central University of Jammu<br>
+                <small>neerendra.csit@cujammu.ac.in</small></p>
+            </div>
+            
+            <h5 class="mt-4">Social Profiles</h5>
+            <div class="social-links-vertical">
+                <p><a href="https://www.linkedin.com/in/muhammed-rafeeq-war/" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a></p>
+                <p><a href="https://scholar.google.com/citations?user=ypzZCO0AAAAJ&hl=en" target="_blank"><i class="fas fa-graduation-cap"></i> Google Scholar</a></p>
+                <p><a href="https://www.researchgate.net/profile/Muhammed-Rafeeq-War" target="_blank"><i class="fab fa-researchgate"></i> ResearchGate</a></p>
+                <p><a href="https://sciprofiles.com/profile/MuhammedRafeeqWar" target="_blank"><i class="fas fa-user-graduate"></i> SciProfiles</a></p>
+                <p><a href="https://medium.com/@warrafeeq0" target="_blank"><i class="fab fa-medium"></i> Medium</a></p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+
+{% block title %}Publications - Muhammed Rafeeq War{% endblock %}
+
+{% block content %}
+<h1>Publications</h1>
+<p class="lead">Research publications in Edge Computing, Federated Learning, and Cybersecurity</p>
+
+<div class="publications-list">
+    {% for publication in publications %}
+    <div class="publication-item mb-4 p-4 border rounded">
+        <h4>{{ publication.title }}</h4>
+        <p class="text-muted mb-2">{{ publication.authors }}</p>
+        
+        {% if publication.journal %}
+        <p class="mb-1">
+            <strong>{{ publication.journal }}</strong>
+            {% if publication.volume %}, Vol. {{ publication.volume }}{% endif %}
+            {% if publication.pages %}, pp. {{ publication.pages }}{% endif %}
+            ({{ publication.year }})
+        </p>
+        {% else %}
+        <p class="mb-1"><strong>{{ publication.year }}</strong></p>
+        {% endif %}
+        
+        {% if publication.abstract %}
+        <div class="abstract mt-3">
+            <h6>Abstract:</h6>
+            <p>{{ publication.abstract|truncatewords:50 }}</p>
+        </div>
+        {% endif %}
+        
+        <div class="publication-links mt-3">
+            {% if publication.url %}
+            <a href="{{ publication.url }}" class="btn btn-primary btn-sm" target="_blank">
+                <i class="fas fa-external-link-alt"></i> View Paper
+            </a>
+            {% endif %}
+            {% if publication.pdf %}
+            <a href="{{ publication.pdf.url }}" class="btn btn-danger btn-sm" target="_blank">
+                <i class="fas fa-file-pdf"></i> PDF
+            </a>
+            {% endif %}
+            {% if publication.doi %}
+            <a href="https://doi.org/{{ publication.doi }}" class="btn btn-info btn-sm" target="_blank">
+                <i class="fas fa-link"></i> DOI
+            </a>
+            {% endif %}
+            {% if publication.selected %}
+            <span class="badge bg-warning text-dark">Selected</span>
+            {% endif %}
+        </div>
+    </div>
+    {% empty %}
+    <div class="alert alert-info">
+        <h4>Publications Coming Soon!</h4>
+        <p>I'm currently working on several research papers in Edge Computing, Federated Learning, and Cybersecurity. Publications will be listed here as they become available.</p>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

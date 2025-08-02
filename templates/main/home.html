@@ -1,0 +1,79 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-8">
+        <h1>About</h1>
+        {% if profile %}
+        <p class="lead">{{ profile.description }}</p>
+        <p>PhD Graduate Student at IIT Ropar specializing in Edge Computing, Federated Learning, and Cybersecurity.</p>
+        {% else %}
+        <p class="lead">PhD Graduate Student at IIT Ropar specializing in Edge Computing, Federated Learning, and Cybersecurity.</p>
+        {% endif %}
+        
+        <h3 class="mt-4">Recent News</h3>
+        {% if recent_news %}
+        <div class="news-section">
+            {% for news in recent_news %}
+            <div class="news-item mb-2">
+                <small class="text-muted">{{ news.date }}</small>
+                <p>{{ news.content }}</p>
+            </div>
+            {% endfor %}
+        </div>
+        {% endif %}
+
+        <h3 class="mt-4">Latest Posts</h3>
+        {% if recent_posts %}
+        <div class="row">
+            {% for post in recent_posts %}
+            <div class="col-md-4 mb-3">
+                <div class="card">
+                    <div class="card-body">
+                        <h6 class="card-title">{{ post.title }}</h6>
+                        <p class="card-text">{{ post.description|truncatewords:15 }}</p>
+                        <a href="{% url 'blog_detail' post.slug %}" class="btn btn-sm btn-primary">Read More</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        {% endif %}
+    </div>
+    
+    <div class="col-md-4">
+        <div class="text-center">
+            {% if profile.profile_image %}
+            <img src="{{ profile.profile_image.url }}" class="img-fluid rounded-circle mb-3" style="max-width: 200px;">
+            {% else %}
+            <div class="bg-secondary rounded-circle mx-auto mb-3" style="width: 200px; height: 200px; display: flex; align-items: center; justify-content: center;">
+                <i class="fas fa-user fa-5x text-white"></i>
+            </div>
+            {% endif %}
+            
+            <h4>{% if profile %}{{ profile.first_name }} {{ profile.last_name }}{% else %}Muhammed Rafeeq War{% endif %}</h4>
+            <p class="text-muted">PhD Graduate Student</p>
+            <p class="text-muted">IIT Ropar</p>
+            
+            <div class="social-links mt-3">
+                <a href="https://github.com/Warrafeeq" class="btn btn-outline-dark btn-sm me-1"><i class="fab fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/muhammed-rafeeq-war/" class="btn btn-outline-primary btn-sm me-1"><i class="fab fa-linkedin"></i></a>
+                <a href="https://scholar.google.com/citations?user=ypzZCO0AAAAJ&hl=en" class="btn btn-outline-success btn-sm me-1"><i class="fas fa-graduation-cap"></i></a>
+                <a href="https://www.researchgate.net/profile/Muhammed-Rafeeq-War" class="btn btn-outline-info btn-sm me-1"><i class="fab fa-researchgate"></i></a>
+                <a href="https://sciprofiles.com/profile/MuhammedRafeeqWar" class="btn btn-outline-warning btn-sm me-1"><i class="fas fa-user-graduate"></i></a>
+                <a href="https://medium.com/@warrafeeq0" class="btn btn-outline-secondary btn-sm"><i class="fab fa-medium"></i></a>
+            </div>
+        </div>
+
+        {% if selected_publications %}
+        <h5 class="mt-4">Selected Publications</h5>
+        {% for pub in selected_publications %}
+        <div class="publication-item mb-3 p-2 border-start border-primary">
+            <h6>{{ pub.title }}</h6>
+            <small class="text-muted">{{ pub.authors }} ({{ pub.year }})</small>
+        </div>
+        {% endfor %}
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

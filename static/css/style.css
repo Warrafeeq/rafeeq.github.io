@@ -1,0 +1,88 @@
+/* Custom styles for the portfolio website */
+
+body {
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.6;
+}
+
+.navbar-brand {
+    font-weight: 600;
+}
+
+.cv-item {
+    border-left: 3px solid #007bff;
+    padding-left: 15px;
+}
+
+.publication-item {
+    transition: box-shadow 0.3s ease;
+}
+
+.publication-item:hover {
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.news-item {
+    border-left: 2px solid #28a745;
+    padding-left: 10px;
+}
+
+.social-links a {
+    transition: transform 0.2s ease;
+}
+
+.social-links a:hover {
+    transform: translateY(-2px);
+}
+
+.card {
+    transition: transform 0.2s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.abstract {
+    background-color: #f8f9fa;
+    padding: 15px;
+    border-radius: 5px;
+    border-left: 4px solid #007bff;
+}
+
+footer {
+    margin-top: auto;
+}
+
+.sticky-top {
+    top: 100px;
+}
+
+.references p {
+    margin-bottom: 1rem;
+    padding: 0.5rem;
+    background-color: #f8f9fa;
+    border-radius: 5px;
+    border-left: 3px solid #007bff;
+}
+
+.references small {
+    color: #6c757d;
+}
+
+.social-links-vertical a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.social-links-vertical a:hover {
+    color: #0056b3;
+    text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+    .sticky-top {
+        position: relative !important;
+        top: auto !important;
+    }
+}

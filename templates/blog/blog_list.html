@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% load custom_filters %}
+
+{% block title %}Blog - Muhammed Rafeeq War{% endblock %}
+
+{% block content %}
+<h1>Blog</h1>
+<p class="lead">Research insights on Edge Computing, Federated Learning, and Cybersecurity</p>
+
+<div class="row">
+    {% for post in posts %}
+    <div class="col-md-6 mb-4">
+        <div class="card h-100">
+            {% if post.featured_image %}
+            <img src="{{ post.featured_image.url }}" class="card-img-top" alt="{{ post.title }}">
+            {% endif %}
+            <div class="card-body">
+                <h5 class="card-title">{{ post.title }}</h5>
+                <p class="card-text">{{ post.description|truncatewords:20 }}</p>
+                <small class="text-muted">{{ post.date|date:"F d, Y" }}</small>
+                {% if post.tags %}
+                <div class="mt-2">
+                    {% for tag in post.tags|split:"," %}
+                    <span class="badge bg-secondary me-1">{{ tag|trim }}</span>
+                    {% endfor %}
+                </div>
+                {% endif %}
+            </div>
+            <div class="card-footer">
+                <a href="{% url 'blog_detail' post.slug %}" class="btn btn-primary">Read More</a>
+            </div>
+        </div>
+    </div>
+    {% empty %}
+    <div class="col-12">
+        <div class="alert alert-info">
+            <h4>Coming Soon!</h4>
+            <p>Blog posts will be available soon. Stay tuned for insights on Edge Computing, Federated Learning, and Cybersecurity research.</p>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}
